@@ -5,4 +5,4 @@ Disallow: /api/
 Disallow: /settings
 Disallow: /profile/
 
-Sitemap: https://ab3ec84a-0056-445c-8ac4-9b17a1c44e89-00-2sehejedb9c3h.picard.replit.dev/sitemap.xml
+Sitemap: https://creativista-ai.onrender.com/sitemap.xml
