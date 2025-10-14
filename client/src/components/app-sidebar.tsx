@@ -36,6 +36,7 @@ import {
   ScrollText,
   Edit3,
   Newspaper,
+  Code,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
@@ -70,6 +71,7 @@ const tools = [
 ];
 
 const infoPages = [
+  { title: "API", url: "/api", icon: Code },
   { title: "FAQ", url: "/faq", icon: HelpCircle },
   { title: "About Us", url: "/about-us", icon: Info },
   { title: "Blog", url: "https://creativista-ai.blogspot.com/?m=1", icon: Newspaper },
