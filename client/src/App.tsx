@@ -33,6 +33,7 @@ import ContactUs from "@/pages/ContactUs";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import DMCA from "@/pages/DMCA";
 import CanvasEditor from "@/pages/CanvasEditor";
+import API from "@/pages/API";
 import { useAuth } from "@/hooks/useAuth";
 import { UserAvatar } from "@/components/UserAvatar";
 
@@ -63,6 +64,7 @@ function Router() {
       <Route path="/contact-us" component={ContactUs} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/dmca" component={DMCA} />
+      <Route path="/api" component={API} />
       <Route component={NotFound} />
     </Switch>
   );
