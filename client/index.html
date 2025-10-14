@@ -153,7 +153,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "CreatiVista ai",
-      "alternateName": "CreatiVista",
+      "legalName": "CreatiVista ai",
+      "alternateName": ["CreatiVista", "Creativista AI", "CreatiVista AI"],
       "url": "https://creativista-ai.onrender.com",
       "logo": {
         "@type": "ImageObject",
@@ -184,7 +185,24 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "CreatiVista ai",
-      "url": "https://creativista-ai.onrender.com/"
+      "alternateName": ["CreatiVista", "Creativista AI", "CreatiVista AI"],
+      "url": "https://creativista-ai.onrender.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://creativista-ai.onrender.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CreatiVista ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://i.postimg.cc/jdTc057z/logo.png"
+        }
+      }
     }
     </script>
     
