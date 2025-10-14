@@ -8,7 +8,8 @@ const app = express();
 app.use((req, res, next) => {
   // Security Headers
   res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  // Allow iframe embedding from any domain for API embed codes
+  // X-Frame-Options removed to enable embedding on external websites
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');

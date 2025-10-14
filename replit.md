@@ -21,6 +21,7 @@ Key features include:
 - **Admin Panel**: Comprehensive management of users (ban/unban, delete), images (moderate, delete), art styles, and platform statistics.
 - **Community Gallery**: Display of generated images with filters.
 - **Storage Flexibility**: Abstracted storage with primary use of Neon PostgreSQL database for persistence, with fallback to in-memory storage.
+- **API Embed Codes**: Public API page with iframe embed codes for all AI tools, allowing external websites to integrate CreatiVista AI features. Commercial use allowed, no API key required.
 
 ## System Design Choices
 The application uses a flexible storage abstraction layer with Neon PostgreSQL database as the primary persistent storage, managed through Drizzle ORM for type-safe database queries. Firebase Authentication manages user sessions and authentication states. The build process uses Vite for the frontend and ESBuild for the backend. The Express server serves both the API and frontend on a single port.
@@ -60,7 +61,7 @@ The application uses a flexible storage abstraction layer with Neon PostgreSQL d
 
 # Replit Environment Setup
 
-## Current Status (Last Updated: October 11, 2025 - Neon Database Migration Completed)
+## Current Status (Last Updated: October 14, 2025 - API Embed Support Added)
 
 The application has been successfully migrated from Google Drive storage to Neon PostgreSQL database. The setup is complete and the application is fully functional with persistent database storage.
 
@@ -78,6 +79,8 @@ The application has been successfully migrated from Google Drive storage to Neon
 ✅ Storage system migrated to Neon PostgreSQL database
 ✅ Database schema pushed successfully using Drizzle Kit
 ✅ Default admin account created (eeweed27ai@admin.com)
+✅ API embed page added with iframe codes for all tools
+✅ X-Frame-Options header removed to enable iframe embedding on external websites
 
 ### Required Environment Variables
 

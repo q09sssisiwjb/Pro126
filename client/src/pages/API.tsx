@@ -230,13 +230,28 @@ export default function API() {
         </Card>
 
         {/* Terms Section */}
-        <Card className="border-green-200 dark:border-green-800">
+        <Card className="border-green-200 dark:border-green-800 mb-6 md:mb-8">
           <CardHeader className="p-4 md:p-6">
             <CardTitle className="text-base md:text-lg text-green-700 dark:text-green-400">✓ Commercial Use Allowed</CardTitle>
             <CardDescription className="text-sm md:text-base">
               You are free to use these embed codes on any website, including commercial projects. 
               Our tools are provided as-is for integration purposes. Please ensure your use complies 
               with our Terms & Conditions and Privacy Policy.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+
+        {/* Technical Details */}
+        <Card className="border-blue-200 dark:border-blue-800">
+          <CardHeader className="p-4 md:p-6">
+            <CardTitle className="text-base md:text-lg text-blue-700 dark:text-blue-400">Technical Details</CardTitle>
+            <CardDescription className="text-sm md:text-base">
+              <ul className="list-disc list-inside space-y-2 mt-2">
+                <li><strong>Iframe Support:</strong> All pages are optimized for iframe embedding with no X-Frame-Options restrictions</li>
+                <li><strong>Cross-Origin:</strong> Works on any domain without CORS issues</li>
+                <li><strong>Responsive:</strong> Automatically adapts to container width</li>
+                <li><strong>SSL/HTTPS:</strong> Fully secured for production use</li>
+              </ul>
             </CardDescription>
           </CardHeader>
         </Card>
