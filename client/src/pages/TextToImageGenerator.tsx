@@ -705,7 +705,6 @@ const TextToImageGenerator = () => {
       'flux-schnell': 'Flux-Schnell',
       'flux-real': 'Flux-Real',
       'flux': 'Flux (fast)',
-      'flux-realism': 'Flux-Realism',
       'turbo': 'Turbo',
       'image-4': 'Image-4 (retired)',
       'image-4-ultra': 'Image-4 Ultra (retired)'
@@ -1304,7 +1303,7 @@ const TextToImageGenerator = () => {
     let url: string;
     let isCustomModelRequest = false;
     const xevenModels = ['flux-schnell', 'flux-real'];
-    const pollinationsModels = ['flux', 'flux-realism', 'turbo'];
+    const pollinationsModels = ['flux', 'turbo'];
     const retiredModels = ['image-4', 'image-4-ultra'];
     
     // Handle retired models by falling back to flux
@@ -1968,7 +1967,6 @@ const TextToImageGenerator = () => {
                   <SelectItem value="flux-schnell">Flux-Schnell</SelectItem>
                   <SelectItem value="flux-real">Flux-Real</SelectItem>
                   <SelectItem value="flux">Flux (fast)</SelectItem>
-                  <SelectItem value="flux-realism">Flux-Realism</SelectItem>
                   <SelectItem value="turbo">Turbo</SelectItem>
                   {customModels.length > 0 && (
                     <>
