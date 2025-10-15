@@ -705,9 +705,10 @@ const TextToImageGenerator = () => {
       'flux-schnell': 'Flux-Schnell',
       'flux-real': 'Flux-Real',
       'flux': 'Flux (fast)',
+      'flux-realism': 'Flux-Realism',
       'turbo': 'Turbo',
-      'image-4': 'Image-4',
-      'image-4-ultra': 'Image-4 Ultra'
+      'image-4': 'Image-4 (retired)',
+      'image-4-ultra': 'Image-4 Ultra (retired)'
     };
     
     return modelNames[modelId] || modelId;
@@ -1303,20 +1304,32 @@ const TextToImageGenerator = () => {
     let url: string;
     let isCustomModelRequest = false;
     const xevenModels = ['flux-schnell', 'flux-real'];
-    const pollinationsModels = ['flux', 'turbo', 'image-4', 'image-4-ultra'];
+    const pollinationsModels = ['flux', 'flux-realism', 'turbo'];
+    const retiredModels = ['image-4', 'image-4-ultra'];
+    
+    // Handle retired models by falling back to flux
+    let modelToUse = selectedModel;
+    if (retiredModels.includes(selectedModel)) {
+      modelToUse = 'flux';
+      toast({
+        title: "Model updated",
+        description: `The ${selectedModel} model is no longer available. Using Flux instead.`,
+        variant: "default",
+      });
+    }
     
     if (isCustomModel) {
       // Extract custom model ID
       const customModelId = selectedModel.replace('custom-', '');
       isCustomModelRequest = true;
       url = '/api/generate-with-custom-model'; // Will be a POST request
-    } else if (xevenModels.includes(selectedModel)) {
+    } else if (xevenModels.includes(modelToUse)) {
       // Use xeven.workers.dev API with aspect ratio support
-      url = `https://ai-image-api.xeven.workers.dev/img?prompt=${encodeURIComponent(enhancedPrompt)}&model=${selectedModel}&guidance=${guidance}&strength=${strength}&width=${width}&height=${height}`;
-    } else if (pollinationsModels.includes(selectedModel)) {
+      url = `https://ai-image-api.xeven.workers.dev/img?prompt=${encodeURIComponent(enhancedPrompt)}&model=${modelToUse}&guidance=${guidance}&strength=${strength}&width=${width}&height=${height}`;
+    } else if (pollinationsModels.includes(modelToUse)) {
       // Use pollinations.ai API
       const actualSeed = useRandomSeed ? Math.floor(Math.random() * 1000000) : (parseInt(seed) || Math.floor(Math.random() * 1000000));
-      url = `https://image.pollinations.ai/prompt/${encodeURIComponent(enhancedPrompt)}?width=${width}&height=${height}&seed=${actualSeed}&model=${selectedModel}&nologo=true`;
+      url = `https://image.pollinations.ai/prompt/${encodeURIComponent(enhancedPrompt)}?width=${width}&height=${height}&seed=${actualSeed}&model=${modelToUse}&nologo=true`;
     } else {
       throw new Error('Unknown model selected');
     }
@@ -1955,9 +1968,8 @@ const TextToImageGenerator = () => {
                   <SelectItem value="flux-schnell">Flux-Schnell</SelectItem>
                   <SelectItem value="flux-real">Flux-Real</SelectItem>
                   <SelectItem value="flux">Flux (fast)</SelectItem>
+                  <SelectItem value="flux-realism">Flux-Realism</SelectItem>
                   <SelectItem value="turbo">Turbo</SelectItem>
-                  <SelectItem value="image-4">Image-4</SelectItem>
-                  <SelectItem value="image-4-ultra">Image-4 Ultra</SelectItem>
                   {customModels.length > 0 && (
                     <>
                       <SelectItem value="divider" disabled>---Custom Models---</SelectItem>
